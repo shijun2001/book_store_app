@@ -1,0 +1,52 @@
+rails new bookstore_app -T --skip-turbolinks
+cd bookstore_app
+
+git init
+git add .
+git commit -m "Generate BookStore Application"
+git remote add origin git@github.com:shijun2001/book_store_app.git
+git push -u origin master
+
+
+
+Gemfile:
+
+group :development, :test do
+++++++++++++++++++++++++++++++
+  gem 'rspec-rails', '3.2.3'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec', require: false
+end
+
+group :test do
+	gem 'capybara', '2.4.4'
+end
+
+
+
+git checkout -b install-repec
+git branch
+
+bin/bundle install
+
+rails generate rspec:install
+ls -la bin/
+spring binstub --all
+ls -la bin/
+
+
+guard init rspec
+Expected string default value for '--listen-on'; got false (boolean)
+16:46:01 - INFO - Writing new Guardfile to /home/shijun/RoR/2.2.5/bookstore_app/Guardfile
+16:46:01 - INFO - rspec guard added to Guardfile, feel free to edit it
+
+
+Guardfile:
+guard :rspec, cmd: "bundle exec rspec" do  -->  guard :rspec, cmd: "bin/rspec" do
+
+
+
+
+
+
+
