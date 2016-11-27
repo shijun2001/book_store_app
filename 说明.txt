@@ -10,7 +10,6 @@ git push -u origin master
 
 
 Gemfile:
-
 group :development, :test do
 ++++++++++++++++++++++++++++++
   gem 'rspec-rails', '3.2.3'
@@ -36,14 +35,61 @@ ls -la bin/
 
 
 guard init rspec
-Expected string default value for '--listen-on'; got false (boolean)
-16:46:01 - INFO - Writing new Guardfile to /home/shijun/RoR/2.2.5/bookstore_app/Guardfile
-16:46:01 - INFO - rspec guard added to Guardfile, feel free to edit it
 
 
 Guardfile:
 guard :rspec, cmd: "bundle exec rspec" do  -->  guard :rspec, cmd: "bin/rspec" do
 
+
+guard
+
+git add .
+git commit -m "Add Rspec, Guard and Capybara"
+git checkout master
+git merge install-repec
+git branch
+git push
+
+
+
+git checkout -b author-model
+git branch
+
+rspec spec/models/author_spec.rb
+
+Gemfile:
+group :development do
+	# Access an IRB console on exception pages or by using <%= console %> in views
+  	gem 'web-console', '~> 2.0'
+end
+
+
+rake db:migrate
+rails g model author first_name last_name
+rake db:migrate
+rspec spec/models/author_spec.rb
+
+Gemfile:
+group :development, :test do
+++++++++++++++++++++++++++++++
+  gem 'fabrication'
+end
+
+bundle install
+
+rspec spec/models/author_spec.rb
+
+Gemfile:
+group :development do
+++++++++++++++++++++++++++++++
+  	gem 'pry'
+  	gem 'pry-nav'
+end
+
+group :test do
+++++++++++++++++++++++++++++++
+	gem 'faker'
+end
 
 
 
